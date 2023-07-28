@@ -25,7 +25,6 @@ let getSizeTable = (data) => {
 
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
     getSizeTable(tableTernua);
 });
