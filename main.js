@@ -22,9 +22,51 @@ let getSizeTable = (data) => {
         sizeTable.appendChild(tableRow);
         console.log(sizeTable)
     }
+}
 
+let getModalElement = () => {
+    return document.querySelector(".modal");
+}
+
+let showModalTableSize = () => {
+    let modalSizeTable = getModalElement();
+    let showBtnModalTableSize = document.querySelector(".show-size-table");
+    showBtnModalTableSize.addEventListener("click", () => {
+        modalSizeTable.style.display = "block";
+    })
+};
+
+let closeModalTableSize = () => {
+    let span = document.querySelector(".modal-close");
+    let modal = getModalElement();
+    span.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
+    window.addEventListener("keydown", function(e){
+        if (e.code === "Escape") {
+            modal.style.display = "none";
+        }
+    }, true);
+}
+
+let current = undefined;
+
+function onMouseover() {
+    if (current) {
+        current.classList.remove('size-table__td-blue')
+    }
+    this.classList.add('size-table__td-blue')
+    current = this;
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     getSizeTable(tableTernua);
+    showModalTableSize();
+    closeModalTableSize();
+
+    const items = document.querySelectorAll('.size-table__td')
+    for (let i = 0; i < items.length; ++i) {
+        const item = items[i]
+        item.addEventListener('mouseover', onMouseover)
+    }
 });
