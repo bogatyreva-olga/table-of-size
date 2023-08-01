@@ -4,8 +4,143 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="style.css">
-    <script type="module" src="./main.js"></script>
-    <script type="module" src="./data.js"></script>
+    <script>
+        let tableTernua = {
+            "data": [
+                [
+                    "Размер",
+                    "XS",
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
+                ],
+                [
+                    "Рост, см",
+                    "176",
+                    "178",
+                    "182",
+                    "186",
+                    "188",
+                    "192"
+                ],
+                [
+                    "Обхват груди, см",
+                    "80-84",
+                    "85-89",
+                    "90-94",
+                    "95-99",
+                    "100-104",
+                    "105-110"
+                ],
+                [
+                    "Обхват талии, см",
+                    "61-65",
+                    "66-70",
+                    "71-75",
+                    "76-80",
+                    "81-85",
+                    "86-90"
+                ],
+                [
+                    "Обхват бедер, см",
+                    "86-90",
+                    "91-95",
+                    "96-100",
+                    "101-105",
+                    "106-110",
+                    "111-115"
+                ],
+                [
+                    "Длина рукава, см ",
+                    "70-71",
+                    "72-73",
+                    "74-75",
+                    "76-77",
+                    "78-79",
+                    "80-81"
+                ],
+                [
+                    "Длина брюк (по внешнему шву)",
+                    "92-95",
+                    "96-99",
+                    "100-103",
+                    "104-107",
+                    "108-110",
+                    "111-113"
+                ]
+            ],
+        }
+
+        let getSizeTable = (data) => {
+            let sizeTable = document.querySelector(".size-table");
+
+            for (let i = 0; i < data.data.length; i++) {
+                let tableRow = document.createElement("div");
+                tableRow.classList.add("size-table__tr");
+
+                for (let k = 0; k < data.data[i].length; k++) {
+                    let tableCol = document.createElement("div");
+                    tableCol.classList.add("size-table__td");
+                    tableCol.innerHTML = data.data[i][k];
+                    tableCol.dataset.row = i;
+                    tableCol.dataset.col = k;
+
+                    tableRow.appendChild(tableCol);
+                }
+                sizeTable.appendChild(tableRow);
+            }
+        }
+
+        function showColorElement(e) {
+            let current = e.target
+            if (window.innerWidth > 768) {
+                removeColorElements();
+                this.classList.add('size-table__td-blue')
+
+                let numberCol = parseInt(current.dataset.col);
+                let numberRow = parseInt(current.dataset.row);
+
+                let colElements = document.querySelectorAll('.size-table__td[data-row="' + numberRow + '"]');
+                let rowElements = document.querySelectorAll('.size-table__td[data-col="' + numberCol + '"]');
+
+                for (let i = 0; i < colElements.length; i++) {
+                    let currentCol = parseInt(colElements[i].dataset.col);
+                    let currentRow = parseInt(rowElements[i].dataset.row);
+
+                    if (currentCol > 0 && currentCol < numberCol && currentCol !== 0) {
+                        colElements[i].classList.add("size-table__td-grey");
+                        colElements[0].classList.add("size-table__td-blue");
+                    }
+                    if (currentRow > 0 && currentRow < numberRow) {
+                        rowElements[i].classList.add("size-table__td-grey");
+                        rowElements[0].classList.add("size-table__td-blue");
+                    }
+                }
+            }
+        }
+
+        let removeColorElements = () => {
+            let colElements1 = document.querySelectorAll(".size-table__td");
+            for (let i = 0; i < colElements1.length; i++) {
+                colElements1[i].classList.remove("size-table__td-grey");
+                colElements1[i].classList.remove("size-table__td-blue");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            getSizeTable(tableTernua);
+
+            const items = document.querySelectorAll('.size-table__td')
+            for (let i = 0; i < items.length; ++i) {
+                const item = items[i]
+                item.addEventListener('mouseover', showColorElement);
+                item.addEventListener("mouseout", removeColorElements)
+            }
+        });
+    </script>
+
     <title>Table of size</title>
 </head>
 <body>
