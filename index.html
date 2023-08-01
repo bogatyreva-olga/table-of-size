@@ -97,7 +97,7 @@
             let current = e.target
             if (window.innerWidth > 768) {
                 removeColorElements();
-                this.classList.add('size-table__td-blue')
+                this.classList.add('size-table__td-color-red')
 
                 let numberCol = parseInt(current.dataset.col);
                 let numberRow = parseInt(current.dataset.row);
@@ -110,12 +110,12 @@
                     let currentRow = parseInt(rowElements[i].dataset.row);
 
                     if (currentCol > 0 && currentCol < numberCol && currentCol !== 0) {
-                        colElements[i].classList.add("size-table__td-grey");
-                        colElements[0].classList.add("size-table__td-blue");
+                        colElements[i].classList.add("size-table__td-white");
+                        colElements[0].classList.add("size-table__td-color-red");
                     }
                     if (currentRow > 0 && currentRow < numberRow) {
-                        rowElements[i].classList.add("size-table__td-grey");
-                        rowElements[0].classList.add("size-table__td-blue");
+                        rowElements[i].classList.add("size-table__td-white");
+                        rowElements[0].classList.add("size-table__td-color-red");
                     }
                 }
             }
@@ -124,8 +124,8 @@
         let removeColorElements = () => {
             let colElements1 = document.querySelectorAll(".size-table__td");
             for (let i = 0; i < colElements1.length; i++) {
-                colElements1[i].classList.remove("size-table__td-grey");
-                colElements1[i].classList.remove("size-table__td-blue");
+                colElements1[i].classList.remove("size-table__td-white");
+                colElements1[i].classList.remove("size-table__td-color-red");
             }
         }
 

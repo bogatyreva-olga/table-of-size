@@ -20,17 +20,8 @@
     position: absolute;
     top: 60px;
     background-color: #ababab;
-    margin-top: 1.4375rem;
     opacity: .5;
     margin-bottom: 24px;
-}
-
-.size-table__tr:first-child {
-    margin-bottom: 20px;
-}
-
-.size-table__tr:nth-child(2) {
-    margin-top: 40px;
 }
 
 .size-table__td:first-child {
@@ -68,12 +59,12 @@
     margin-bottom: 38px;
 }
 
-.size-table__td-blue {
+.size-table__td-color-red {
     background: #ffffff;
     color: red;
 }
 
-.size-table__td-grey {
+.size-table__td-white {
     background: #ffffff;
 }
 
