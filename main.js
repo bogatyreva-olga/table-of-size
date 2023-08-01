@@ -57,12 +57,21 @@ function showColorElement() {
     }
 }
 
+let removeColorElements = () => {
+    let colElements1 = document.querySelectorAll(".size-table__td");
+    for (let i = 0; i < colElements1.length; i++) {
+        colElements1[i].classList.remove("size-table__td-grey");
+        colElements1[i].classList.remove("size-table__td-blue");
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     getSizeTable(tableTernua);
 
     const items = document.querySelectorAll('.size-table__td')
     for (let i = 0; i < items.length; ++i) {
         const item = items[i]
-        item.addEventListener('mouseover', showColorElement)
+        item.addEventListener('mouseover', showColorElement);
+        item.addEventListener("mouseout", removeColorElements)
     }
 });
