@@ -28,7 +28,6 @@
     position: fixed;
     font-weight: 600;
     width: 200px;
-    overflow: hidden;
 }
 
 .size-table__td:nth-child(2) {
@@ -78,10 +77,31 @@
     .modal-body {
         min-width: 100%;
         box-sizing: border-box;
+        overflow: hidden;
     }
 
     .size-table__td {
         font-size: 11px;
+    }
+
+    .size-table__td {
+        height: 24px;
+        width: 54px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+    }
+
+    .size-table__td:first-child {
+        width: 150px;
+    }
+
+    .size-table__td:nth-child(2) {
+        margin-left: 170px;
+    }
+
+    .size-table__tr:first-child:after {
+        display: none;
     }
 }
 
