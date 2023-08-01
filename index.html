@@ -109,11 +109,11 @@
                     let currentCol = parseInt(colElements[i].dataset.col);
                     let currentRow = parseInt(rowElements[i].dataset.row);
 
-                    if (currentCol > 0 && currentCol < numberCol && currentCol !== 0) {
+                    if (currentCol > 0 && currentCol <= numberCol) {
                         colElements[i].classList.add("size-table__td-white");
                         colElements[0].classList.add("size-table__td-color-red");
                     }
-                    if (currentRow > 0 && currentRow < numberRow) {
+                    if (currentRow > 0 && currentRow <= numberRow) {
                         rowElements[i].classList.add("size-table__td-white");
                         rowElements[0].classList.add("size-table__td-color-red");
                     }
