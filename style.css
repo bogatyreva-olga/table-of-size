@@ -1,13 +1,11 @@
+
 .size-table {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    box-sizing: border-box;
     width: 1080px;
     margin: auto;
     position: relative;
     background: #f2f2f2;
     cursor: pointer;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
 }
 
 .size-table__tr {
@@ -38,12 +36,12 @@
 .size-table__td:first-child {
     position: fixed;
     font-weight: 600;
-    width: 300px;
+    width: 200px;
     overflow: hidden;
 }
 
 .size-table__td:nth-child(2) {
-    margin-left: 300px;
+    margin-left: 200px;
 }
 
 .size-table__td {
@@ -51,12 +49,11 @@
     width: 94px;
     border: none;
     display: inline-block;
-    font-size: 1rem;
+    font-size: 16px;
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 20px;
     background: #f2f2f2;
-    scroll-behavior: smooth;
 }
 
 .size-table__td .size-table__td:first-child {
@@ -78,5 +75,22 @@
 
 .size-table__td-grey {
     background: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .table-size-container {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .modal-body {
+        min-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .size-table__td {
+        font-size: 11px;
+    }
 }
 
