@@ -22,6 +22,7 @@
     background-color: #ababab;
     opacity: .5;
     margin-bottom: 24px;
+    z-index: 10;
 }
 
 .size-table__td:first-child {
@@ -101,7 +102,7 @@
     }
 
     .size-table__tr:first-child:after {
-        display: none;
+        top: 52px;
     }
 }
 
