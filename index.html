@@ -63,16 +63,16 @@
                 removeColorElements();
                 this.classList.add('size-table__td-color-red')
 
-                let numberCol = parseInt(current.dataset.col); /*номер колонки*/
-                let numberRow = parseInt(current.dataset.row); /*номер элемента*/
+                let numberCol = parseInt(current.dataset.col);
+                let numberRow = parseInt(current.dataset.row);
 
-                let rowElements = document.querySelectorAll('.size-table__td[data-row="' + numberRow + '"]'); /*строка полностью*/
-                let colElements = document.querySelectorAll('.size-table__td[data-col="' + numberCol + '"]'); /*столбец полностью*/
+                let rowElements = document.querySelectorAll('.size-table__td[data-row="' + numberRow + '"]');
+                let colElements = document.querySelectorAll('.size-table__td[data-col="' + numberCol + '"]');
 
                 for (let i = 0; i < rowElements.length; i++) {
-                    let currentRow = parseInt(rowElements[i].dataset.col); /*сколько колонок*/
+                    let currentRow = parseInt(rowElements[i].dataset.col);
 
-                    if (currentRow <= numberCol) { /* 5 колонок больше 4 */
+                    if (currentRow <= numberCol) {
                         rowElements[i].classList.add("size-table__td-white");
                         rowElements[0].classList.add("size-table__td-color-red");
                     }
