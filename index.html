@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
     <link rel="stylesheet" href="style.css">
-    <script>
+    <script defer>
         let tableTernua = {
             "data": [
                 [
-                    "Настя",
-                    "5XS",
-                    "4XS",
-                    "3XS",
-                    "2SX",
-                    "SX",
-                    "Норм"
+                    "Размер",
+                    "XS",
+                    "S",
+                    "M",
+                    "L",
+                    "XL",
+                    "XXL"
                 ],
                 [
                     "Рост, см",
@@ -63,33 +63,37 @@
                 removeColorElements();
                 this.classList.add('size-table__td-color-red')
 
-                let numberCol = parseInt(current.dataset.col);
-                let numberRow = parseInt(current.dataset.row);
+                let numberCol = parseInt(current.dataset.col); /*номер колонки*/
+                let numberRow = parseInt(current.dataset.row); /*номер элемента*/
 
-                let colElements = document.querySelectorAll('.size-table__td[data-row="' + numberRow + '"]');
-                let rowElements = document.querySelectorAll('.size-table__td[data-col="' + numberCol + '"]');
+                let rowElements = document.querySelectorAll('.size-table__td[data-row="' + numberRow + '"]'); /*строка полностью*/
+                let colElements = document.querySelectorAll('.size-table__td[data-col="' + numberCol + '"]'); /*столбец полностью*/
 
-                for (let i = 0; i < colElements.length; i++) {
-                    let currentCol = parseInt(colElements[i].dataset.col);
-                    let currentRow = parseInt(rowElements[i].dataset.row);
+                for (let i = 0; i < rowElements.length; i++) {
+                    let currentRow = parseInt(rowElements[i].dataset.col); /*сколько колонок*/
 
-                    if (currentCol > 0 && currentCol <= numberCol) {
-                        colElements[i].classList.add("size-table__td-white");
-                        colElements[0].classList.add("size-table__td-color-red");
-                    }
-                    if (currentRow > 0 && currentRow <= numberRow) {
+                    if (currentRow <= numberCol) { /* 5 колонок больше 4 */
                         rowElements[i].classList.add("size-table__td-white");
                         rowElements[0].classList.add("size-table__td-color-red");
+                    }
+                }
+
+                for (let i = 0; i < colElements.length; i++) {
+                    let currentCol = parseInt(colElements[i].dataset.row);
+
+                    if (currentCol <= numberRow) {
+                        colElements[i].classList.add("size-table__td-white");
+                        colElements[0].classList.add("size-table__td-color-red");
                     }
                 }
             }
         }
 
         let removeColorElements = () => {
-            let colElements1 = document.querySelectorAll(".size-table__td");
-            for (let i = 0; i < colElements1.length; i++) {
-                colElements1[i].classList.remove("size-table__td-white");
-                colElements1[i].classList.remove("size-table__td-color-red");
+            let rowElements1 = document.querySelectorAll(".size-table__td");
+            for (let i = 0; i < rowElements1.length; i++) {
+                rowElements1[i].classList.remove("size-table__td-white");
+                rowElements1[i].classList.remove("size-table__td-color-red");
             }
         }
 
