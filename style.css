@@ -1,7 +1,16 @@
+.modal-content {
+    width: 33%;
+    margin: 0 auto;
+}
+
+.modal-body {
+overflow-x: scroll;
+    max-width: 100%;
+}
 
 .size-table {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
-    width: 1080px;
+    width: max-content;
     margin: auto;
     position: relative;
     background: #f2f2f2;

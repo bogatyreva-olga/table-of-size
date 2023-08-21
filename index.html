@@ -14,6 +14,10 @@
                     "M",
                     "L",
                     "XL",
+                    "XXL",
+                    "XXL",
+                    "XXL",
+                    "XXL",
                     "XXL"
                 ],
                 [
@@ -23,6 +27,10 @@
                     "182",
                     "186",
                     "188",
+                    "192",
+                    "192",
+                    "192",
+                    "192",
                     "192"
                 ],
                 [
@@ -32,10 +40,40 @@
                     "90-94",
                     "95-99",
                     "100-104",
+                    "105-110",
+                    "105-110",
+                    "105-110",
+                    "105-110",
+                    "105-110"
+                ],
+                [
+                    "Обхват груди, см",
+                    "80-84",
+                    "85-89",
+                    "90-94",
+                    "95-99",
+                    "100-104",
+                    "105-110",
+                    "105-110",
+                    "105-110",
+                    "105-110",
+                    "105-110"
+                ],
+                [
+                    "Обхват груди, см",
+                    "80-84",
+                    "85-89",
+                    "90-94",
+                    "95-99",
+                    "100-104",
+                    "105-110",
+                    "105-110",
+                    "105-110",
+                    "105-110",
                     "105-110"
                 ],
             ],
-        }
+        };
 
         let getSizeTable = (data) => {
             let sizeTable = document.querySelector(".size-table");
@@ -55,13 +93,13 @@
                 }
                 sizeTable.appendChild(tableRow);
             }
-        }
+        };
 
         function showColorElement(e) {
-            let current = e.target
+            let current = e.target;
             if (window.innerWidth > 768) {
                 removeColorElements();
-                this.classList.add('size-table__td-color-red')
+                this.classList.add('size-table__td-color-red');
 
                 let numberCol = parseInt(current.dataset.col);
                 let numberRow = parseInt(current.dataset.row);
@@ -95,16 +133,16 @@
                 rowElements1[i].classList.remove("size-table__td-white");
                 rowElements1[i].classList.remove("size-table__td-color-red");
             }
-        }
+        };
 
         document.addEventListener('DOMContentLoaded', () => {
             getSizeTable(tableTernua);
 
-            const items = document.querySelectorAll('.size-table__td')
-            for (let i = 0; i < items.length; ++i) {
-                const item = items[i]
+            const items = document.querySelectorAll('.size-table__td');
+            for (let i = 0; i < items.length; i++) {
+                const item = items[i];
                 item.addEventListener('mouseover', showColorElement);
-                item.addEventListener("mouseout", removeColorElements)
+                item.addEventListener("mouseout", removeColorElements);
             }
         });
     </script>
@@ -112,9 +150,11 @@
     <title>Table of size</title>
 </head>
 <body>
-<div class="modal-body">
-    <div class="table-size-container">
-        <div class="size-table"></div>
+<div class="modal-content">
+    <div class="modal-body">
+        <div class="table-size-container">
+            <div class="size-table"></div>
+        </div>
     </div>
 </div>
 </body>
