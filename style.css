@@ -37,11 +37,15 @@
 .size-table__td:first-child {
     position: fixed;
     font-weight: 600;
-    width: 200px;
+    width: 220px;
+}
+
+.size-table__tr:last-child .size-table__td {
+    padding-bottom: 50px;
 }
 
 .size-table__td:nth-child(2) {
-    margin-left: 200px;
+    margin-left: 220px;
 }
 
 .size-table__td {
