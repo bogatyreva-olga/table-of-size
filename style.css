@@ -1,5 +1,5 @@
 .modal-content {
-    width: 33%;
+    width: 900px;
     margin: 0 auto;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .size-table__td-white {
-    background: #ffffff;
+    background: lightgray;
 }
 
 @media (max-width: 768px) {
@@ -95,7 +95,7 @@
     }
 
     .size-table__td {
-        height: 24px;
+        height: 64px;
         width: 54px;
         padding-top: 15px;
         padding-bottom: 15px;
